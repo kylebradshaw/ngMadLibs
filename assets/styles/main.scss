@@ -1,13 +1,20 @@
+@import url('http://fonts.googleapis.com/css?family=Vollkorn');
+
 body {
+    font-family: 'Vollkorn', serif;
     // background-image: url(https://tf-curricula-prod.s3.amazonaws.com/curricula/TK7MJkkxuVSLEH2iz0I7/ANG-001/v2/assets2/1.2.6_ngMadLibs/ngmadlib-mockup.png);
     background-repeat: no-repeat;
     background-position: 50% 0;
 }
 
+input {
+    font-family: 'Vollkorn', serif;
+}
+
 .wrapper {
     min-width: 600px;
     width: 50%;
-    margin: 8em auto;
+    margin: 4em auto;
     border: 3px solid black;
     background-color: #fff;
 }
@@ -43,27 +50,29 @@ header {
         justify-content: space-around;
         align-items: center;
         li {
-            margin: 1em;
+            margin: 0.7em;
         }
     }
     input[type="text"] {
         border: 2px solid #000;
         display: inline;
         padding: 0.4em;
+        font-size: 1em;
     }
 }
 .libs {
     font-size: 1.2em;
-    line-height: 1.4;
+    line-height: 1.6;
     padding: 1em 2em;
     span.var {
-        padding: 0 0.2em;
+        background-color: lightyellow;
+        padding: 0.1em;
         text-decoration: underline;
-        &::before {
-            content: '{{';
-        }
-        &::after {
-            content: '}}';
-        }
+        // &::before {
+        //     content: '{{';
+        // }
+        // &::after {
+        //     content: '}}';
+        // }
     }
 }
