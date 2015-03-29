@@ -9,6 +9,8 @@
 <body>
     <div class="wrapper">
         <header>
+            <img class="face" src="assets/images/mad-lib-happy-face.png" alt="face">
+            <img class="logo" src="assets/images/ng-mad-libs-logo.png" alt="logo">
             <h1>ngMadLibs</h1>
             <h2>Automate This!</h2>
         </header>
@@ -16,12 +18,23 @@
             <section class="words">
                 <h3>Provide the following words:</h3>
                 <ul>
-                    <li ng-repeat="word in words">
-                        <input type="text" placeholder="{{word}}">
-                    </li>
+                    <!-- <li><input type="text" placeholder="male name" ng-model="word1" ng-init="word1='male name'" ng-click="word1=''"></li> -->
+                    <li><input type="text" placeholder="female name" ng-model="word5" ng-init="word5='female name'" ng-click="word5=''"></li>
+                    <li><input type="text" placeholder="job title" ng-model="word2" ng-init="word2='job title'" ng-click="word2=''"></li>
+                    <li><input type="text" placeholder="tediuous task" ng-model="word3" ng-init="word3='tediuous task'" ng-click="word3=''"></li>
+                    <li><input type="text" placeholder="dirty task" ng-model="word4" ng-init="word4='dirty task'" ng-click="word4=''"></li>
+                    <li><input type="text" placeholder="celebrity" ng-model="word6" ng-init="word6='celebrity'" ng-click="word6=''"></li>
+                    <li><input type="text" placeholder="useless skill" ng-model="word7" ng-init="word7='useless skill'" ng-click="word7=''"></li>
+                    <li><input type="text" placeholder="adjective" ng-model="word8" ng-init="word8='adjective'" ng-click="word8=''"></li>
+                    <li><input type="text" placeholder="obnoxiuous celebrity" ng-model="word9" ng-init="word9='obnoxiuous celebrity'" ng-click="word9=''"></li>
+                    <li><input type="text" placeholder="huge number" ng-model="word10" ng-init="word10='huge number'" ng-click="word10=''"></li>
                 </ul>
             </section>
-            <section class="libs"></section>
+            <section class="libs" ng-cloak>
+                <p><span class="var">{{word5}}</span> was a <span class="var">{{word2}}</span> who loved technology. Although she loved parts of her job, she absolutely hated  <span class="var">{{word3}}</span> and <span class="var">{{word4}}</span>. So, <span class="var">{{word5}}</span> met with her life mentor <span class="var">{{word6}}</span> who told her to learn how to <span class="var">{{word7}}</span> with Thinkful. Thinkful didn't offer a course on <span class="var">{{word7}}</span> so she studied programming instead. </p>
+                 
+                <p>What a great decision! With her new skills, <span class="var">{{word5}}</span> built a(n) <span class="var">{{word8}}</span> robot named <span class="var">{{word9}}</span> that not only loved <span class="var">{{word4}}</span> but did it <span class="var">{{word10}}</span> faster. </p>
+            </section>
         </main>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
