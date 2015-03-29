@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="madLibs">
+<head>
+    <meta charset="UTF-8">
+    <title>ngMadLibs</title
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+    <link rel="stylesheet" href="assets/styles/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>ngMadLibs</h1>
+            <h2>Automate This!</h2>
+        </header>
+        <main ng-controller="mainController">
+            <section class="words">
+                <h3>Provide the following words:</h3>
+                <ul>
+                    <li ng-repeat="word in words">
+                        <input type="text" placeholder="{{word}}">
+                    </li>
+                </ul>
+            </section>
+            <section class="libs"></section>
+        </main>
+    </div>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <script src="assets/scripts/app.js"></script>
+</body>
+</html>
