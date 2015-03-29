@@ -22,17 +22,29 @@ input {
 header {
     text-align: right;
     border-bottom: 3px solid black;
-    h1,
-    h2 {
+    height: 105px;
+    h1 {
         position: absolute;
         left: -9999px;
+    }
+    h2 {
+        font-size: 3em;
+        margin: 0;
+        line-height: 1;
     }
     .face {
         float: left;
         max-width: 72px;
-        padding: 1.1em 0 0.7em 2.2em;
+        padding: 1.2em 2.2em 0.9em 2.2em;
+        border-right: 3px solid black;
     }
     .logo {
+        max-height: 50px;
+    }
+    div.title {
+        float: right;
+        text-align: center;
+        width: 75%;
     }
 
 }
