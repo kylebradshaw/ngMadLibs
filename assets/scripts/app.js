@@ -1,6 +1,7 @@
 angular
     .module('madLibs', [])
     .controller('mainController', ['$scope', function($scope) {
-        //unused
-        $scope.words = ['male name', 'Dirty task', 'Obnoxious celebrity', 'Job title', 'Celebrity', 'Huge number', 'Tedious task', 'Useless skill', 'Adjective']
+        $scope.placeholders = ['female name', 'job title', 'tedious task', 'dirty task', 
+            'celebrity', 'useless skill', 'adjective', 'obnoxious celebrity', 'huge number', 'male name'];
+        $scope.words = [];
     }]);
