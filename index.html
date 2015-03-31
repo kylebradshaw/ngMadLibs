@@ -20,8 +20,8 @@
             <section class="words">
                 <h3>Select a gender</h3>
                 <div class="gender">
-                    <input type="radio" name="gender" value="female" ng-model="gender"> Female<br>
-                    <input type="radio" name="gender" value="male" ng-model="gender"> Male
+                    <label><input type="radio" name="gender" value="female" ng-model="gender"> Female</label><br>
+                    <label><input type="radio" name="gender" value="male" ng-model="gender"> Male</label>
                 </div>
                 <h3 ng-show='gender'>Provide the following words:</h3>
                 <ul ng-show='gender'>
