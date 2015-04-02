@@ -20,59 +20,43 @@
             <section class="words">
                 <h3>Select a gender</h3>
                 <div class="gender">
-                    <label><input type="radio" name="gender" value="female" ng-model="gender"> Female</label><br>
+                    <label><input type="radio" name="gender" value="female" ng-model="gender" ng-init="gender='female'"> Female</label><br>
                     <label><input type="radio" name="gender" value="male" ng-model="gender"> Male</label>
                 </div>
                 <h3 ng-show='gender'>Provide the following words:</h3>
                 <ul ng-show='gender'>
-<!--                
-                    how to segregate out gender input fields in a repeat?     
-                    <li ng-repeat="placeholder in placeholders">
-                        <input type="text" 
-                            placeholder="{{placeholders[$index]}}" 
-                            ng-model="words[$index]" ng-init="words[$index]=placeholders[$index]" ng-click="words[$index]=''">
+
+                    <!-- how to segregate out gender input fields in a repeat? -->
+                    <li ng-repeat="(key, value) in words">
+                        <input type="text" placeholder="{{value}}" ng-model="words[key]">
                     </li>
--->                
-                    <li ng-if="gender=='female'"><input type="text" placeholder="{{placeholders[0]}}" ng-model="words[0]" ng-init="words[0]=placeholders[0]" ng-click="words[0]=''"></li>
-                    <li ng-if="gender=='male'"><input type="text" placeholder="{{placeholders[9]}}" ng-model="words[9]" ng-init="words[9]=placeholders[9]" ng-click="words[9]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[1]}}" ng-model="words[1]" ng-init="words[1]=placeholders[1]" ng-click="words[1]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[2]}}" ng-model="words[2]" ng-init="words[2]=placeholders[2]" ng-click="words[2]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[3]}}" ng-model="words[3]" ng-init="words[3]=placeholders[3]" ng-click="words[3]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[4]}}" ng-model="words[4]" ng-init="words[4]=placeholders[4]" ng-click="words[4]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[5]}}" ng-model="words[5]" ng-init="words[5]=placeholders[5]" ng-click="words[5]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[6]}}" ng-model="words[6]" ng-init="words[6]=placeholders[6]" ng-click="words[6]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[7]}}" ng-model="words[7]" ng-init="words[7]=placeholders[7]" ng-click="words[7]=''"></li>
-                    <li><input type="text" placeholder="{{placeholders[8]}}" ng-model="words[8]" ng-init="words[8]=placeholders[8]" ng-click="words[8]=''"></li>
                 </ul>
             </section>
             <section class="libs" ng-cloak ng-show='gender'>
                 <p>
-                    <span ng-if="gender=='female'" class="var">{{words[0]}}</span>
-                    <span ng-if="gender=='male'" class="var">{{words[9]}}</span> was a 
-                    <span class="var">{{words[1]}}</span> who loved technology. Although 
-                    <span ng-if="gender=='female'">she</span><span ng-if="gender=='male'">he</span> loved parts of 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">his</span> job, 
-                    <span ng-if="gender=='female'">she</span><span ng-if="gender=='male'">he</span> absolutely hated  
-                    <span class="var">{{words[2]}}</span> and 
-                    <span class="var">{{words[3]}}</span>. So, 
-                    <span ng-if="gender=='female'" class="var">{{words[0]}}</span>
-                    <span ng-if="gender=='male'" class="var">{{words[9]}}</span> met with 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">his</span> life mentor 
-                    <span class="var">{{words[4]}}</span> who told 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">him</span> to learn how to 
-                    <span class="var">{{words[5]}}</span> with Thinkful. Thinkful didn't offer a course on 
-                    <span class="var">{{words[5]}}</span> so 
-                    <span ng-if="gender=='female'">she</span><span ng-if="gender=='male'">he</span> studied programming instead.
+                    <span class="var">{{words['name']}}</span> was a
+                    <span class="var">{{words['jobTitle']}}</span> who loved technology. Although
+                    {{subjectPronoun}} loved parts of
+                    {{objectPronoun}} job,
+                    {{subjectPronoun}} absolutely hated
+                    <span class="var">{{words['tediousTask']}}</span> and
+                    <span class="var">{{words['dirtyTask']}}</span>. So,
+                    <span class="var">{{words['name']}}</span> met with
+                    {{objectPronoun}} life mentor
+                    <span class="var">{{words['celebrity']}}</span> who told
+                    {{objectPronoun}} to learn how to
+                    <span class="var">{{words['uselessSkill']}}</span> with Thinkful. Thinkful didn't offer a course on
+                    <span class="var">{{words['uselessSkill']}}</span> so
+                    {{subjectPronoun}} studied programming instead.
                 </p>
-                 
-                <p>What a great decision! With 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">his</span> new skills, 
-                    <span ng-if="gender=='female'" class="var">{{words[0]}}</span>
-                    <span ng-if="gender=='male'" class="var">{{words[9]}}</span> built a(n) 
-                    <span class="var">{{words[6]}}</span> robot named 
-                    <span class="var">{{words[7]}}</span> that not only loved 
-                    <span class="var">{{words[3]}}</span> but did it 
-                    <span class="var">{{words[8]}}</span> faster. 
+
+                <p>What a great decision! With
+                    {{objectPronoun}} new skills,
+                    <span class="var">{{words['name']}}</span> built a(n)
+                    <span class="var">{{words['adjective']}}</span> robot named
+                    <span class="var">{{words['obnoxious']}}</span> that not only loved
+                    <span class="var">{{words['dirtyTask']}}</span> but did it
+                    <span class="var">{{words['hugeNumber']}}</span> faster.
                 </p>
             </section>
         </main>
