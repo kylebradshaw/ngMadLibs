@@ -50,23 +50,23 @@
                     <span ng-if="gender=='female'" class="var">{{words[0]}}</span>
                     <span ng-if="gender=='male'" class="var">{{words[9]}}</span> was a 
                     <span class="var">{{words[1]}}</span> who loved technology. Although 
-                    <span ng-if="gender=='female'">she</span><span ng-if="gender=='male'">he</span> loved parts of 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">his</span> job, 
-                    <span ng-if="gender=='female'">she</span><span ng-if="gender=='male'">he</span> absolutely hated  
+                    {{subjectPronoun}} loved parts of
+                    {{objectPronoun}} job,
+                    {{subjectPronoun}} absolutely hated
                     <span class="var">{{words[2]}}</span> and 
                     <span class="var">{{words[3]}}</span>. So, 
                     <span ng-if="gender=='female'" class="var">{{words[0]}}</span>
                     <span ng-if="gender=='male'" class="var">{{words[9]}}</span> met with 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">his</span> life mentor 
+                    {{objectPronoun}} life mentor
                     <span class="var">{{words[4]}}</span> who told 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">him</span> to learn how to 
+                    {{objectPronoun}} to learn how to
                     <span class="var">{{words[5]}}</span> with Thinkful. Thinkful didn't offer a course on 
                     <span class="var">{{words[5]}}</span> so 
-                    <span ng-if="gender=='female'">she</span><span ng-if="gender=='male'">he</span> studied programming instead.
+                    {{subjectPronoun}} studied programming instead.
                 </p>
                  
                 <p>What a great decision! With 
-                    <span ng-if="gender=='female'">her</span><span ng-if="gender=='male'">his</span> new skills, 
+                    {{objectPronoun}} new skills,
                     <span ng-if="gender=='female'" class="var">{{words[0]}}</span>
                     <span ng-if="gender=='male'" class="var">{{words[9]}}</span> built a(n) 
                     <span class="var">{{words[6]}}</span> robot named 
