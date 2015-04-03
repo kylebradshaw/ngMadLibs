@@ -28,6 +28,7 @@
 
                     <!-- how to segregate out gender input fields in a repeat? -->
                     <li ng-repeat="(key, value) in words">
+                        {{value}}
                         <input type="text" placeholder="{{value}}" ng-model="words[key]">
                     </li>
                 </ul>
