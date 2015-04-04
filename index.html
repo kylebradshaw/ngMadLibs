@@ -17,48 +17,62 @@
             </div>
         </header>
         <main ng-controller="mainController">
-            <section class="words">
-                <h3>Select a gender</h3>
-                <div class="gender">
-                    <label><input type="radio" name="gender" value="female" ng-model="gender" ng-init="gender='female'"> Female</label><br>
-                    <label><input type="radio" name="gender" value="male" ng-model="gender"> Male</label>
+            <form name="madLibForm" novalidate ng-submit="submit()">
+                <div class="alerts" ng-if="madLibForm.$submitted">
+                    <p class="req" ng-if="madLibForm.$invalid">All values are required!</p>
+                    <p class="req" ng-if="madLibForm.$pristine">Please provide unique words!</p>
+                    <p class="nan" ng-if="madLibForm.hugeNumber.$invalid">
+                        <b>{{madLibForm.hugeNumber.$viewValue}}</b> must be a 5 digit number</p>
                 </div>
-                <h3 ng-show='gender'>Provide the following words:</h3>
-                <ul ng-show='gender'>
+                <section class="words" ng-if="!isSubmitted">
+                    <h3>Provide the following words:</h3>
+                    <ul>
+                        <!-- how to segregate out gender input fields in a repeat? -->
+                        <li ng-repeat="(key, value) in words">
+                            <div ng-switch="key">
+                            <!-- {{key}}, {{value}} -->
+                                <input required type="text" name="{{key}}" placeholder="huge number"
+                                    ng-switch-when="hugeNumber" ng-model="words[key]" ng-click="words[key]=''" ng-minlength="5" ng-pattern="/\d.*/">
+                                <input required type="text" name="{{key}}" placeholder="{{key | unpack}}"
+                                    ng-switch-default ng-model="words[key]" ng-click="words[key]=''" ng-minlength="3" ng-pattern="/\w/">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="button-container">
+                        <input id="generate" type="submit" value="Generate My Mad Lib">
+                    </div>
+                </section>
+                <section class="libs" ng-cloak ng-if="isSubmitted && madLibForm.$valid">
+                    <p>
+                        <span class="var">{{words['name']}}</span> was a
+                        <span class="var">{{words['jobTitle']}}</span> who loved technology. Although
+                        {{subjectPronoun}} loved parts of
+                        {{objectPronoun}} job,
+                        {{subjectPronoun}} absolutely hated
+                        <span class="var">{{words['tediousTask']}}</span> and
+                        <span class="var">{{words['dirtyTask']}}</span>. So,
+                        <span class="var">{{words['name']}}</span> met with
+                        {{objectPronoun}} life mentor
+                        <span class="var">{{words['celebrity']}}</span> who told
+                        {{objectPronoun}} to learn how to
+                        <span class="var">{{words['uselessSkill']}}</span> with Thinkful. Thinkful didn't offer a course on
+                        <span class="var">{{words['uselessSkill']}}</span> so
+                        {{subjectPronoun}} studied programming instead.
+                    </p>
 
-                    <!-- how to segregate out gender input fields in a repeat? -->
-                    <li ng-repeat="(key, value) in words">
-                        <input type="text" ng-model="words[key]" ng-click="words[key]=''">
-                    </li>
-                </ul>
-            </section>
-            <section class="libs" ng-cloak ng-show='gender'>
-                <p>
-                    <span class="var">{{words['name']}}</span> was a
-                    <span class="var">{{words['jobTitle']}}</span> who loved technology. Although
-                    {{subjectPronoun}} loved parts of
-                    {{objectPronoun}} job,
-                    {{subjectPronoun}} absolutely hated
-                    <span class="var">{{words['tediousTask']}}</span> and
-                    <span class="var">{{words['dirtyTask']}}</span>. So,
-                    <span class="var">{{words['name']}}</span> met with
-                    {{objectPronoun}} life mentor
-                    <span class="var">{{words['celebrity']}}</span> who told
-                    {{objectPronoun}} to learn how to
-                    <span class="var">{{words['uselessSkill']}}</span> with Thinkful. Thinkful didn't offer a course on
-                    <span class="var">{{words['uselessSkill']}}</span> so
-                    {{subjectPronoun}} studied programming instead.
-                </p>
-
-                <p>What a great decision! With
-                    {{objectPronoun}} new skills,
-                    <span class="var">{{words['name']}}</span> built a(n)
-                    <span class="var">{{words['adjective']}}</span> robot named
-                    <span class="var">{{words['obnoxious']}}</span> that not only loved
-                    <span class="var">{{words['dirtyTask']}}</span> but did it
-                    <span class="var">{{words['hugeNumber']}}</span> faster.
-                </p>
-            </section>
+                    <p>What a great decision! With
+                        {{objectPronoun}} new skills,
+                        <span class="var">{{words['name']}}</span> built a(n)
+                        <span class="var">{{words['adjective']}}</span> robot named
+                        <span class="var">{{words['obnoxious']}}</span> that not only loved
+                        <span class="var">{{words['dirtyTask']}}</span> but did it
+                        <span class="var">{{words['hugeNumber']}}</span> faster.
+                    </p>
+                    <div class="button-container">
+                        <input id="start-over" type="button" value="Start Over" ng-click="reset(); madLibForm.$setPristine()">
+                    </div>
+                </section>
+            </form>
         </main>
     </div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
