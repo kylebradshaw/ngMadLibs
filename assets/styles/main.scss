@@ -115,3 +115,13 @@ header {
         color: $red;
     }
 }
+// animate
+.rando.ng-enter, .rando.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+}
+
+.rando.ng-enter { background-color: blue;}        /* starting animations for enter */
+.rando.ng-enter.ng-enter-active { } /* terminal animations for enter */
+.rando.ng-leave {  background-color: red; }        /* starting animations for leave */
+.rando.ng-leave.ng-leave-active { } /* terminal animations for leave */

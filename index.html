@@ -41,6 +41,10 @@
                     <div class="button-container">
                         <input id="generate" type="submit" value="Generate My Mad Lib">
                     </div>
+                    <div ng-if="rando" class="rando">
+                        random element
+                    </div>
+                    <button ng-click="rando=!rando">Rando</button>
                 </section>
                 <section class="libs" ng-cloak ng-if="isSubmitted && madLibForm.$valid">
                     <p>
@@ -75,7 +79,8 @@
             </form>
         </main>
     </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.3.15/angular.js"></script>
+    <script src="https://code.angularjs.org/1.4.0-beta.6/angular-animate.js"></script>
     <script src="assets/scripts/app.js"></script>
 </body>
 </html>

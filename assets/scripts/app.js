@@ -3,7 +3,7 @@ function unpack(input) {
 };
 
 angular
-    .module('madLibs', [])
+    .module('madLibs', ['ngAnimate'])
     .controller('mainController', ['$scope', function($scope) {
 
         var words = {
